@@ -10,6 +10,12 @@ def lnglat_validator(value):
         raise ValidationError('Invalid LngLat Type')
 
 class Post(models.Model):
+    STATUS_CHOICES = (
+        ('d', 'Draft'),
+        ('p', 'Published'),
+        ('w', 'Withdraw'),
+    )
+
     author = models.CharField(max_length=20)
     name = models.CharField(max_length=100, verbose_name='제목', help_text='제목을 입력해주세요. 최대 100자')
     content = models.TextField(verbose_name='내용')
@@ -19,6 +25,7 @@ class Post(models.Model):
                               blank=True,
                               validators=[lnglat_validator]
                               )
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
