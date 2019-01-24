@@ -17,7 +17,7 @@ class Post(models.Model):
         ('w', 'Withdraw'),
     )
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=True, related_name='blog_post_set')
     name = models.CharField(max_length=100, verbose_name='제목', help_text='제목을 입력해주세요. 최대 100자')
     content = models.TextField(verbose_name='내용')
     tags = models.CharField(max_length=100, blank=True)
