@@ -1,7 +1,7 @@
 #blog/admin.py
 
 from django.contrib import admin
-from .models import Post
+from .models import Post, Tag
 from .models import Comment
 
 
@@ -27,4 +27,8 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
     pass
