@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ post.name }}</title>
-</head>
-<body>
-<h1>{{ post.name }}</h1>
+{% extends 'blog/layout.html' %}
+
+{% block title %}
+    {{ post.name }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ post.name }}</h1>
 {{ post.content |linebreaks}}
 
 <hr/>
@@ -18,5 +18,5 @@
         <small> at {{ comment.updated_at }}</small>
     </li>
 {% endfor %}
-</body>
-</html>
+
+{% endblock %}
