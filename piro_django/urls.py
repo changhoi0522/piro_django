@@ -14,10 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import re_path, include
 from django.conf import settings
 
+def root(request):
+    return redirect('blog:post_list')
+
 urlpatterns = [
+    re_path(r'^$', lambda r: redirect('blog:post_list'), name='root'),
     re_path(r'^admin/', admin.site.urls),
     re_path(r'^blog/', include('blog.urls')),
     re_path(r'^dojo/', include('dojo.urls')),

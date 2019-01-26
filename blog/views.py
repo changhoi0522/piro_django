@@ -18,5 +18,4 @@ def post_detail(request, id):
 
     return render(request, 'blog/post_detail.html', {
         'post':post,
-
     })
