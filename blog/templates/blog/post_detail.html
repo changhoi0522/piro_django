@@ -20,6 +20,7 @@
 {% endfor %}
     <hr>
     <a href="{% url 'blog:post_list' %}">글 목록</a>
+    <a href="{% url 'blog:post_edit' post.id %}" class="btn btn-primary">글 수정</a>
 
 
 {% endblock %}

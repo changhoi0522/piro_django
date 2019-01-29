@@ -17,8 +17,6 @@ from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import re_path, include
 from django.conf import settings
-
-
 urlpatterns = [
     re_path(r'^$', lambda r: redirect('blog:post_list'), name='root'),
     re_path(r'^admin/', admin.site.urls),
