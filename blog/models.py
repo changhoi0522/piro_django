@@ -31,7 +31,7 @@ class Post(models.Model):
     tag_set = models.ManyToManyField('Tag', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    author = models.CharField(max_length=50)
     class Meta:
         ordering = ['-id']
 
