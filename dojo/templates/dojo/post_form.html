@@ -4,12 +4,35 @@
     <div class="row">
         <div class="col-md-12">
             <h1>Post Form</h1>
-            <form action="" method="post">
+            <form action="" method="post" class="form-horizontal">
                 {% csrf_token %}
-                <table class="table table-bordered table-hover">
-                    {{ form.as_table }}
-                </table>
-                <input type="submit" value="제출" class="btn-primary btn">
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert_danget">
+                    {{ error }}
+                    </div>
+                {% endfor %}
+
+                {% for field in form.hidden_fields %}
+                    {{ field }}
+                {% endfor %}
+
+                {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        <div class="col-sm-10">
+                            {{ field }}
+                            {% if field.help_text %}
+                                <p class="help-block">{{ field.help_text }}</p>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+                <input type="submit" class="btn-primary btn" value="제출">
             </form>
         </div>
     </div>
@@ -22,4 +45,9 @@
 <script>
     const dom = document.getElementById('{{ form.user_agent.id_for_label }}');
     dom.value = navigator.userAgent
+
+    $(function() {
+        $('.form-group label').addClass('col-sm-2');
+        $('.form-group input, .form-group textarea').addClass('form-control');
+    });
 </script>
