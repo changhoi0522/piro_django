@@ -1,53 +1,20 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <h1>Post Form</h1>
-            <form action="" method="post" class="form-horizontal">
+            <form action="" method="post" style="width: 100%;">
                 {% csrf_token %}
-                {% for error in form.non_field_errors %}
-                    <div class="alert alert_danget">
-                    {{ error }}
-                    </div>
-                {% endfor %}
-
-                {% for field in form.hidden_fields %}
-                    {{ field }}
-                {% endfor %}
-
-                {% for field in form.visible_fields %}
-                    <div class="form-group">
-                        {{ field.label_tag }}
-                        <div class="col-sm-10">
-                            {{ field }}
-                            {% if field.help_text %}
-                                <p class="help-block">{{ field.help_text }}</p>
-                            {% endif %}
-                            {% for error in field.errors %}
-                                <div class="alert alert-danger">
-                                    {{ error }}
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endfor %}
-                <input type="submit" class="btn-primary btn" value="제출">
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-primary">
             </form>
         </div>
     </div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 <script>
     const dom = document.getElementById('{{ form.user_agent.id_for_label }}');
     dom.value = navigator.userAgent
-
-    $(function() {
-        $('.form-group label').addClass('col-sm-2');
-        $('.form-group input, .form-group textarea').addClass('form-control');
-    });
 </script>
