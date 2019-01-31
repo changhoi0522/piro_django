@@ -134,6 +134,8 @@ STATICFILES_DIR = [
     os.path.join(BASE_DIR, 'piro_django', 'static'),
 ]
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 INTERNAL_IPS = ['127.0.0.1']
 
 from django.contrib.messages import constants
