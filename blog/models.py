@@ -22,7 +22,7 @@ class Post(models.Model):
     name = models.CharField(max_length=100, verbose_name='제목', help_text='제목을 입력해주세요. 최대 100자')
     content = models.TextField(verbose_name='내용')
 
-    photo = models.ImageField(blank=True)
+    photo = models.ImageField(blank=True, upload_to='blog/post/%Y/%m/%d')
 
     tags = models.CharField(max_length=100, blank=True)
     lnglat = models.CharField(max_length=50,
