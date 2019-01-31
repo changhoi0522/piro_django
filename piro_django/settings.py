@@ -129,11 +129,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
+STATICFILES_DIR = [
+    os.path.join(BASE_DIR, 'piro_django', 'static'),
+]
 
 INTERNAL_IPS = ['127.0.0.1']
 
-from django.contrib.messages import  constants
+from django.contrib.messages import constants
 
 MESSAGE_LEVEL = constants.DEBUG # 지금부터 debug 레벨의 messages를 남길 수 있다.
 MESSAGE_TAGS = {constants.ERROR: 'danger'}
