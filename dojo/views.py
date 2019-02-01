@@ -46,7 +46,6 @@ post_detail = DetailView.as_view(model=Post, pk_url_kwarg='id')
 #     @classmethod
 #     def as_view(cls, model):
 #         def view(request, *args, **kwargs):
-#             self = cls(model)
 #             return self.dispatch(request, *args, **kwargs)
 #         return view
 #
