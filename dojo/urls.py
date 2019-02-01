@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     re_path(r'^new/$', views.post_new),
     re_path(r'^(?P<id>\d+)/edit/$', views.post_edit),
-
+    re_path(r'^(?P<id>\d+)/$', views.post_detail),
     re_path(r'^sum/(?P<numbers>[\d/]+)/$', views.mysum),
     re_path(r'^hello/(?P<name>[ㄱ-힣]+)/(?P<age>\d+)/$', views.hello),
     re_path(r'^list1/$', views.post_list1),

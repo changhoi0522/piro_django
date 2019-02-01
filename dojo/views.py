@@ -22,6 +22,13 @@ def post_new(request):
         'form':form,
     })
 
+
+def post_detail(request, id):
+    post = get_object_or_404(Post, id=id)
+    return render(request, 'dojo/post_detail.html', {
+        'post': post,
+    })
+
 def post_edit(request, id):
     post = get_object_or_404(Post, id=id)
 
