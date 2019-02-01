@@ -10,7 +10,7 @@
         <div class="col-12">
             <h2>{{ post.name }}</h2>
             {% if post.photo %}
-                <img src="{{ post.photo_thumbnail.url }}" alt="" class="img-fluid">
+                <img src="{{ post.photo.url }}" alt="" class="img-fluid">
             {% endif %}
             {{ post.content |linebreaks}}
             <hr/>
