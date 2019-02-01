@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'dojo',
     'accounts',
     'shop',
-
-    
 ]
 
 MIDDLEWARE = [
