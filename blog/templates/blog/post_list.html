@@ -13,7 +13,7 @@
                     <li>http://localhost:8000/blog/ 주소로 접속해보세요</li>
                     <li>템플릿 경로를 blog/templates/post_list.html 경로가 아닌 blog/templates/blog/post_list.html 경로를 쓰는 지에 대한 이유는 후에 Template Loader에서 설명합니다.</li>
                 </ul>
-                <a href="{% url 'blog:post_new' %}" class="btn btn-primary">New Post</a>
+                <a href="{% url 'blog:post_new' %}" class="btn btn-primary float-right">New Post</a>
                 <p>
                     <form action="" method="get">
                         <input type="text" name="q" value="{{ q }}" />
