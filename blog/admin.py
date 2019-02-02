@@ -7,9 +7,17 @@ from .models import Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','content_size', 'status', 'content']
+    list_display = ['id', 'name', 'tag_list', 'content_size', 'status', 'content']
 
     actions = ['make_published','make_draft',]
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.prefetch_related('tag_set')
+
+    def tag_list(self, post):
+        return ', '.join(tag.name for tag in post.tag_set.all())
+
 
     def content_size(self, post):
         return '{}'.format(len(post.content))
