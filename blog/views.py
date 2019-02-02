@@ -8,6 +8,7 @@ from .forms import PostForm
 app_name = 'blog'
 
 def post_list(request):
+
     qs = Post.objects.all()
     q = request.GET.get('q', '')
     if q:
