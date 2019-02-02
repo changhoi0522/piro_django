@@ -15,7 +15,7 @@ def signup(request):
         form = UserCreationForm()
     return render(request, './accounts/signup_form.html', {
         'form': form,
-    })
+        })
 
 
 def profile(request):
