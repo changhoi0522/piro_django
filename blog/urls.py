@@ -13,5 +13,6 @@ urlpatterns = [
     re_path(r'^cbv/new/$', views_cbv.post_new),
     re_path(r'^cbv/(?P<pk>\d+)/edit/$', views_cbv.post_edit),
     re_path(r'^cbv/(?P<pk>\d+)/delete/$', views_cbv.post_delete),
+    re_path(r'^comments/$', views.comment_list, name='comment_list'),
 
 ]

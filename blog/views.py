@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm
 # Create your views here.
 
@@ -57,3 +57,9 @@ def post_edit(request, id):
     return render(request, 'blog/post_form.html', {
         'form': form,
         })
+
+def comment_list(request):
+    comment_list = Comment.objects.all()
+    return render(request, 'blog/comment_list.html', {
+        'comment_list': comment_list
+    })
